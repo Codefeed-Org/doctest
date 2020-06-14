@@ -1,0 +1,23 @@
+description=The fastest feature-rich C++11/14/17/20 single-header testing framework for unit tests and TDD
+version=2.3.8
+author=Viktor Kirilov
+build{
+  generator{
+    cmake{
+      source=$(doctest.path)
+      builddir=$(doctest.path)\build
+      creates=$(doctest.path)\build\Release\doctest_with_main.lib
+    }
+  }
+  export{
+    includes[
+      $(doctest.path)\doctest
+    ]
+    librarypaths[
+      $(doctest.path)\build\Release
+    ]
+    libs[
+      doctest_with_main.lib
+    ]
+  }
+}
